@@ -1,0 +1,28 @@
+.footer-section{
+    background-color: #2a303b;
+}
+
+p span{
+    transition: 0.7s;
+    font-size: 0.9rem;
+}
+
+p span:hover{
+    font-weight: 500;
+    letter-spacing: 0.03rem;
+    color: aqua;
+}
+
+.news-item h6 ,h6{
+    font-size: 0.8rem;
+    transition: 0.6s;
+}
+.news-item h6:hover{
+    font-size: 0.8rem;
+    color: aqua;
+    cursor: pointer;
+}
+
+.news-item p{
+    font-size: 0.75rem;
+}
