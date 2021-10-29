@@ -4,10 +4,13 @@ import { Container, Nav, Navbar, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import './Header.css'
+import useFirebase from '../../../hooks/useFirebase';
 // import useAuth from '../../../hooks/useAuth';
 
 const Header = () => {
     // const { user, logOut } = useAuth();
+    const { signInUsingGoogle, user, logOut} = useFirebase();
+    console.log(user);
 
     return (
         <Navbar sticky="top" className="py-0" collapseOnSelect expand="md" bg="white" variant="info">
@@ -38,13 +41,17 @@ const Header = () => {
                         <NavLink to="/signup" className="mx-2">
                             <Button className="btn btn-info bg-transparent rounded-pill">Sign up</Button>
                         </NavLink>
-                        {/* {user?.displayName ? <NavLink to="/login">
+                        {/* <NavLink to="/login">
+                            <Button onClick={signInUsingGoogle} className="btn btn-danger rounded-pill">login</Button>
+                        </NavLink> */}
+
+                        {user?.displayName ? <NavLink to="/login">
                             <Button onClick={logOut} className="btn btn-danger rounded-pill">Logout</Button>
                             <img className="rounded-circle ms-1"
                                 src={user?.photoURL} alt="" width="40" height="40" />
                         </NavLink> : <NavLink to="/login">
-                            <Button className="btn btn-danger rounded-pill">login</Button>
-                        </NavLink>} */}
+                            <Button onClick={signInUsingGoogle} className="btn btn-danger rounded-pill">login</Button>
+                        </NavLink>}
                     </Nav>
 
                 </Navbar.Collapse>
