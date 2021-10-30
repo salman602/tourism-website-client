@@ -4,12 +4,12 @@ import { Container, Nav, Navbar, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import './Header.css'
-import useFirebase from '../../../hooks/useFirebase';
-// import useAuth from '../../../hooks/useAuth';
+// import useFirebase from '../../../hooks/useFirebase';
+import useAuth from '../../../hooks/useAuth';
 
 const Header = () => {
-    // const { user, logOut } = useAuth();
-    const { signInUsingGoogle, user, logOut} = useFirebase();
+    const { user, logOut } = useAuth();
+    // const { user, logOut} = useFirebase();
     console.log(user);
 
     return (
@@ -45,12 +45,12 @@ const Header = () => {
                             <Button onClick={signInUsingGoogle} className="btn btn-danger rounded-pill">login</Button>
                         </NavLink> */}
 
-                        {user?.displayName ? <NavLink to="/login">
+                        {user?.email ? <NavLink to="/login">
                             <Button onClick={logOut} className="btn btn-danger rounded-pill">Logout</Button>
                             <img className="rounded-circle ms-1"
                                 src={user?.photoURL} alt="" width="40" height="40" />
                         </NavLink> : <NavLink to="/login">
-                            <Button onClick={signInUsingGoogle} className="btn btn-danger rounded-pill">login</Button>
+                            <Button className="btn btn-danger rounded-pill">login</Button>
                         </NavLink>}
                     </Nav>
 
