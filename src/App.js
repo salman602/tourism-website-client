@@ -6,6 +6,7 @@ import Booking from './pages/Booking/Booking';
 import Home from './pages/Home/Home/Home';
 import Services from './pages/Home/Services/Services';
 import Login from './pages/Login/Login';
+import MyBookings from './pages/MyBookings/MyBookings';
 import Footer from './pages/shared/Footer/Footer';
 import Header from './pages/shared/Header/Header';
 import Signup from './pages/SignUp/Signup';
@@ -30,11 +31,14 @@ function App() {
           <Route path="/signup">
             <Signup></Signup>
           </Route>
-          <Route path="/services">
+          <Route exact path="/services">
             <Services></Services>
           </Route>
-          <PrivateRoute path="/booking">
+          <PrivateRoute path="/services/:id">
             <Booking></Booking>
+          </PrivateRoute>
+          <PrivateRoute path="/mybookings">
+            <MyBookings></MyBookings>
           </PrivateRoute>
         </Switch>
         <Footer/>

@@ -1,10 +1,11 @@
-import React from 'react';
+import React ,{useParams} from 'react';
 import { Card, Col, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 const Service = ({ service }) => {
+    
     // console.log(props.service);
-    const { name, description, price, img} = service;
+    const {_id, name, description, price, img} = service;
     return (
         <Col>
             <Card>
@@ -16,7 +17,7 @@ const Service = ({ service }) => {
                         {description}
                     </Card.Text>
                     <Card.Subtitle>Price: ${price}</Card.Subtitle>
-                    <NavLink to="/booking"><Button>Explore</Button></NavLink>
+                    <NavLink to={`/services/${_id}`}><Button>Explore</Button></NavLink>
                 </Card.Body>
             </Card>
         </Col>

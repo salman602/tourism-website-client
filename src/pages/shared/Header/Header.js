@@ -10,7 +10,7 @@ import useAuth from '../../../hooks/useAuth';
 const Header = () => {
     const { user, logOut } = useAuth();
     // const { user, logOut} = useFirebase();
-    console.log(user);
+    // console.log(user);
 
     return (
         <Navbar sticky="top" className="py-0" collapseOnSelect expand="md" bg="white" variant="info">
@@ -33,6 +33,9 @@ const Header = () => {
                         <HashLink className="menu-item" to="/about">About</HashLink>
                         <HashLink className="menu-item" to="/home#tours">Tours</HashLink>
                         <HashLink className="menu-item" to="/home#services">Services</HashLink>
+
+                        {user?.email && <NavLink className="menu-item" to="/myBookings">My Bookings</NavLink>}
+
                         <HashLink className="menu-item" to="/home#blog">Blog</HashLink>
                         <HashLink className="menu-item" to="/home#contact">Contact Us</HashLink>
                     </Nav>
