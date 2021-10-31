@@ -11,7 +11,7 @@ const Booking = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data);
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://powerful-reaches-05315.herokuapp.com/services', {
             method: 'POST',
             headers: {
                 'Content-type' : 'application/json'
@@ -32,7 +32,7 @@ const Booking = () => {
 
     const [service, setService] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/services/${id}`;
+        const url = `https://powerful-reaches-05315.herokuapp.com/services/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setService(data))

@@ -4,7 +4,7 @@ import { Container, Table } from 'react-bootstrap';
 const MyBookings = () => {
     const [bookings, setBookings] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/bookings')
+        fetch('https://powerful-reaches-05315.herokuapp.com/bookings')
             .then(res => res.json())
             .then(data => setBookings(data))
     }, []);
@@ -12,7 +12,7 @@ const MyBookings = () => {
     const handleDeleteBooking = id => {
         const proceed = window.confirm('Are you sure , You want to delete booking?');
         if (proceed) {
-            const url = `http://localhost:5000/bookings/${id}`
+            const url = `https://powerful-reaches-05315.herokuapp.com/bookings/${id}`
             fetch(url, {
                 method: 'DELETE'
             })
