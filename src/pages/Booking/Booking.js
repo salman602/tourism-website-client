@@ -8,8 +8,25 @@ import './Booking.css'
 
 const Booking = () => {
     const {user} = useAuth();
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const { register, handleSubmit, reset } = useForm();
+    const onSubmit = data => {
+        console.log(data);
+        fetch('http://localhost:5000/bookings', {
+            method: 'POST',
+            headers: {
+                'Content-type' : 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(result => {
+            console.log(result)
+            if(result.insertedId){
+                alert('Your Booking is Processed Successfully.');
+                reset();
+            }
+        })
+    };
 
     const { id } = useParams();
 
@@ -27,20 +44,22 @@ const Booking = () => {
                 <Card className="mb-3 mx-auto" style={{ width: '50rem' }}>
                     <Row className="g-0">
                         <Col xs={12} md={5}>
-                            <Card.Img src={service.img} className="img-fluid rounded-start my-2" alt="..." />
+                            <Card.Img src={service.img} className="img-fluid rounded-start my-3" alt="..." />
                             <p><b>Description: </b>{service.description}</p>
                         </Col>
                         <Col xs={9} md={7}>
                             <Card.Body className="text-center">
                                 <h3>Booking</h3>
                                 <form className="booking-form my-3" onSubmit={handleSubmit(onSubmit)}>
-                                    <input {...register("name", { required: true })} value={user.displayName} /> <br />
-                                    <input {...register("email", { required: true })} value={user.email} /> <br />
+                                    {service.key && <input {...register("key", { required: true })} defaultValue={service.key} />} <br />
+                                    <input {...register("name", { required: true })} defaultValue={user.displayName} /> <br />
+                                    <input {...register("email", { required: true })} defaultValue={user.email} /> <br />
                                     <input {...register("phone", { required: true })} placeholder="Phone" /> <br />
                                     <input {...register("whereTo", { required: true })} placeholder="Where To" /> <br />
-                                    <input {...register("destination", { required: true })} value={service.name} /> <br />
-                                    <input type="number" {...register("price")} value={service.price} /> <br />
-                                    <NavLink to="/myBookings"><input type="submit" value="Book Now" /></NavLink>
+                                    {service.name && <input {...register("destination", { required: true })} defaultValue={service.name} />} <br />
+                                    {service.price && <input type="number" {...register("price")} defaultValue={service.price} />} <br />
+                                    {/* <NavLink to="/myBookings"><input type="submit" value="Book Now" /></NavLink> */}
+                                    <input type="submit" defaultValue="Book Now" />
                                 </form>
                             </Card.Body>
                         </Col>
