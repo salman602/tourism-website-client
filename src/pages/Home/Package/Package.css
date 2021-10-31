@@ -1,0 +1,8 @@
+
+.package-card{
+    transition: 0.5s;
+}
+
+.package-card:hover{
+    box-shadow: 0.8px 1px 4px 2px lightgray;
+}

@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Table } from 'react-bootstrap';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+
 const MyBookings = () => {
+    const trashBox = <FontAwesomeIcon icon={faTrashAlt} />
+
+
     const [bookings, setBookings] = useState([]);
     useEffect(() => {
         fetch('https://powerful-reaches-05315.herokuapp.com/bookings')
@@ -27,9 +33,9 @@ const MyBookings = () => {
         }
     }
     return (
-        <div>
+        <div className="py-5">
             <Container>
-                <h3>This is my bookings manager page.</h3>
+                <h3 className="text-center mb-3">My <span className="text-danger">Bookings</span></h3>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr>
@@ -54,7 +60,9 @@ const MyBookings = () => {
                                     <td>{booking.whereTo}</td>
                                     <td>{booking.destination}</td>
                                     <td>{booking.price}</td>
-                                    <td className="text-center"><button onClick={() => handleDeleteBooking(booking._id)}>DELETE</button></td>
+                                    <td className="text-center">
+                                        <button className="border-0 text-danger bg-transparent" onClick={() => handleDeleteBooking(booking._id)}>{trashBox}</button>
+                                    </td>
 
                                 </tr>
                             ))

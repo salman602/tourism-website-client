@@ -2,9 +2,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './Context/AuthProvider';
+import AddPackage from './pages/AddPackage/AddPackage';
 import Booking from './pages/Booking/Booking';
 import Home from './pages/Home/Home/Home';
-import Services from './pages/Home/Services/Services';
+import Packages from './pages/Home/Packages/Packages';
 import Login from './pages/Login/Login';
 import MyBookings from './pages/MyBookings/MyBookings';
 import Footer from './pages/shared/Footer/Footer';
@@ -31,14 +32,17 @@ function App() {
           <Route path="/signup">
             <Signup></Signup>
           </Route>
-          <Route exact path="/services">
-            <Services></Services>
+          <Route exact path="/packages">
+            <Packages></Packages>
           </Route>
-          <PrivateRoute path="/services/:id">
+          <PrivateRoute path="/packages/:id">
             <Booking></Booking>
           </PrivateRoute>
           <PrivateRoute path="/mybookings">
             <MyBookings></MyBookings>
+          </PrivateRoute>
+          <PrivateRoute path="/addPackage">
+            <AddPackage></AddPackage>
           </PrivateRoute>
         </Switch>
         <Footer/>

@@ -30,13 +30,14 @@ const Header = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto">
                         <HashLink className="menu-item" to="/home">Home</HashLink>
-                        <HashLink className="menu-item" to="/about">About</HashLink>
-                        <HashLink className="menu-item" to="/home#tours">Tours</HashLink>
-                        <HashLink className="menu-item" to="/home#services">Services</HashLink>
+                        <HashLink className="menu-item" to="/home#aboutus">About</HashLink>
+                        
+                        <HashLink className="menu-item" to="/home#packages">Packages</HashLink>
 
                         {user?.email && <NavLink className="menu-item" to="/myBookings">My Bookings</NavLink>}
+                        {user?.email && <NavLink className="menu-item" to="/addPackage">Add Package</NavLink>}
 
-                        <HashLink className="menu-item" to="/home#blog">Blog</HashLink>
+                        
                         <HashLink className="menu-item" to="/home#contact">Contact Us</HashLink>
                     </Nav>
 

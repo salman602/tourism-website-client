@@ -65,22 +65,22 @@ const Footer = () => {
                         <hr />
                         <div className="news-item text-white-50">
                             <h6>How To Take Better Portraits When Travelling</h6>
-                            <p>04th August, 2020</p>
+                            <p>04th August, 2021</p>
                         </div>
                         
                         <div className="news-item text-white-50">
                             <h6>The Best Walking Tours in New Orleans</h6>
-                            <p>18th January, 2021</p>
+                            <p>18th February, 2021</p>
                         </div>
                         
                         <div className="news-item text-white-50">
                             <h6>Where to Stay During Your Visit</h6>
-                            <p>26th May, 2021</p>
+                            <p>26th April, 2021</p>
                         </div>
 
                         <div className="news-item text-white-50">
                             <h6>6 Steps to Avoiding “Analysis Paralysis” When Travel Planning</h6>
-                            <p>5th October, 2021</p>
+                            <p>25th October, 2021</p>
                         </div>
                         
                     </Col>
