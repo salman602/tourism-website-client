@@ -45,9 +45,6 @@ const Header = () => {
                         <NavLink to="/signup" className="mx-2">
                             <Button className="btn btn-info bg-transparent rounded-pill">Sign up</Button>
                         </NavLink>
-                        {/* <NavLink to="/login">
-                            <Button onClick={signInUsingGoogle} className="btn btn-danger rounded-pill">login</Button>
-                        </NavLink> */}
 
                         {user?.email ? <NavLink to="/login">
                             <Button onClick={logOut} className="btn btn-danger rounded-pill">Logout</Button>

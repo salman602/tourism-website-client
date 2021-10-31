@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 import React from 'react';
-import { Container, InputGroup } from 'react-bootstrap';
+import { Container} from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import './AddPackage.css';
 

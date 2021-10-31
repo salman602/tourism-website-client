@@ -1,7 +1,7 @@
 .footer-section{
     background-color: #130505;
 }
-/* 2a303b */
+
 p span{
     transition: 0.7s;
     font-size: 0.9rem;
@@ -10,7 +10,7 @@ p span{
 p span:hover{
     font-weight: 500;
     letter-spacing: 0.03rem;
-    color: aqua;
+    color: rgb(255, 17, 0);
 }
 
 .news-item h6 ,h6{
@@ -19,7 +19,7 @@ p span:hover{
 }
 .news-item h6:hover{
     font-size: 0.8rem;
-    color: aqua;
+    color: rgb(255, 30, 0);
     cursor: pointer;
 }
 
